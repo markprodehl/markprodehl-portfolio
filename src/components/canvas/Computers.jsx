@@ -97,7 +97,7 @@ const ComputersCanvas = () => {
   return (
     <>
       {/* Displays a static image on mobile to prevent rendering issues on older devices */}
-      { isMobile ? 
+      {/* { isMobile ? 
         <div className="mobile-canvas-container">
           <img src={computer} alt="Static image of computer" /> 
         </div>
@@ -125,7 +125,30 @@ const ComputersCanvas = () => {
             <Preload all />
           </Canvas>
         </div>
-      }
+      } */}
+       <div className="canvas-container">
+          <Canvas
+            frameloop='demand'
+            shadows
+            dpr={[1, 2]}
+            // After adding the handleSize useEffect to manage media queries the isMobile state might not be neccessary anymore. 
+            // Keeping the setting for now
+            // camera={{ position: [20, 3, 5], fov: isMobile ? 12 : 12 }}
+            camera={{ position: [20, 3, 5], fov: 12 }}
+            gl={{ preserveDrawingBuffer: true }}
+          >
+            <Suspense fallback={<CanvasLoader />}>
+              <OrbitControls
+                enableZoom={false}
+                maxPolarAngle={Math.PI / 2}
+                minPolarAngle={Math.PI / 2}
+              />
+              <Computers isMobile={isMobile} />
+            </Suspense>
+
+            <Preload all />
+          </Canvas>
+        </div>
     
     </>
  
