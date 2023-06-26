@@ -29,7 +29,7 @@ const Tech = () => {
         </motion.div>
 
       <div className='mt-20 flex flex-row flex-wrap justify-center gap-10'>
-        {/* {isMobile 
+        {isMobile 
           ? technologies.map((tech, index) => (
             <motion.div
               initial={{ scale: 0 }} 
@@ -37,21 +37,13 @@ const Tech = () => {
               transition={{ duration: 2 }} 
               key={index}
             >
-              <div className='w-28 h-28 transform transition-transform duration-500 hover:rotate-45' key={index}>
-                <h1 className='flex flex-row justify-center'>{tech.name}</h1>
-                <img src={tech.mobileIcon} alt="" className='icon' />
+              <div className='w-28 h-28' key={index}>
+                <h1 className='flex flex-row justify-center '>{tech.name}</h1>
+                <img src={tech.mobileIcon} alt="" className='icon transform transition-transform duration-500 hover:rotate-45' />
               </div>
           </motion.div>
           ))
           : technologies.map((tech) => (
-              <div className='w-28 h-28' key={tech.name}>
-                <h1 className='flex flex-row justify-center'>{tech.name}</h1>
-                <BallCanvas icon={tech.icon} />
-              </div>
-            ))
-        } */}
-        {
-          technologies.map((tech) => (
             <div className='w-28 h-28' key={tech.name}>
               <h1 className='flex flex-row justify-center'>{tech.name}</h1>
               <BallCanvas icon={tech.icon} />

@@ -3,8 +3,9 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import computer from "../../assets/computer.png";
+import { motion } from "framer-motion";
 
-const Computers = ({ isMobile }) => {
+const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState([]);
@@ -96,11 +97,44 @@ const ComputersCanvas = () => {
 
   return (
     <>
-      {/* Displays a static image on mobile to prevent rendering issues on older devices */}
+      {/* Displays 3D graphic on desktop and mobile */}
+       <div className="canvas-container">
+        <Canvas
+          frameloop='demand'
+          shadows
+          dpr={[1, 2]}
+          // After adding the handleSize useEffect to manage media queries the isMobile state might not be neccessary anymore. 
+          // Keeping the setting for now
+          // camera={{ position: [20, 3, 5], fov: isMobile ? 12 : 12 }}
+          camera={{ position: [20, 3, 5], fov: 12 }}
+          gl={{ preserveDrawingBuffer: true }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            <OrbitControls
+              enableZoom={false}
+              maxPolarAngle={Math.PI / 2}
+              minPolarAngle={Math.PI / 2}
+            />
+            <Computers />
+          </Suspense>
+
+          <Preload all />
+        </Canvas>
+      </div>
+
+      {/* Use this instead of ^ if you run into 3D rendering issues on some mobile devices */}
+      {/* Displays an animated but static image on mobile to prevent 3D rendering issues on older devices */}
       {/* { isMobile ? 
-        <div className="mobile-canvas-container">
-          <img src={computer} alt="Static image of computer" /> 
-        </div>
+        <motion.div
+          initial={{ x: -9, scale: 0 }} // start from 50 pixels left and no size
+          animate={{ x: -9, scale: 1.18 }} // animate to original position and full size
+          transition={{ duration: 2 }} // animation duration is 1 second
+        >
+          <div className="mobile-canvas-container">
+            <img src={computer} alt="Static image of computer" /> 
+          </div>
+         
+        </motion.div>
         :
         <div className="canvas-container">
           <Canvas
@@ -126,32 +160,7 @@ const ComputersCanvas = () => {
           </Canvas>
         </div>
       } */}
-       <div className="canvas-container">
-          <Canvas
-            frameloop='demand'
-            shadows
-            dpr={[1, 2]}
-            // After adding the handleSize useEffect to manage media queries the isMobile state might not be neccessary anymore. 
-            // Keeping the setting for now
-            // camera={{ position: [20, 3, 5], fov: isMobile ? 12 : 12 }}
-            camera={{ position: [20, 3, 5], fov: 12 }}
-            gl={{ preserveDrawingBuffer: true }}
-          >
-            <Suspense fallback={<CanvasLoader />}>
-              <OrbitControls
-                enableZoom={false}
-                maxPolarAngle={Math.PI / 2}
-                minPolarAngle={Math.PI / 2}
-              />
-              <Computers isMobile={isMobile} />
-            </Suspense>
-
-            <Preload all />
-          </Canvas>
-        </div>
-    
     </>
- 
   );
 };
 
