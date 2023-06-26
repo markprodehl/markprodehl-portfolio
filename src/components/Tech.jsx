@@ -19,28 +19,45 @@ const Tech = () => {
   return (
     <>
       {/* Adds a Skills title to the section if neccessary */}
-      {/* <motion.div variants={textVariant()}>
-          <p className={`${styles.sectionSubText} text-center`}>
+      <motion.div variants={textVariant()}>
+          {/* <p className={`${styles.sectionSubText} text-center`}>
             Skills I've learned so far
-          </p>
+          </p> */}
           <h2 className={`${styles.sectionHeadText} text-center`}>
             Skills
           </h2>
-        </motion.div> */}
+        </motion.div>
 
       <div className='mt-20 flex flex-row flex-wrap justify-center gap-10'>
-        {isMobile 
+        {/* {isMobile 
           ? technologies.map((tech, index) => (
-              <div className='w-28 h-28' key={index}>
+            <motion.div
+              initial={{ scale: 0 }} 
+              animate={{ scale: 0.9 }} 
+              transition={{ duration: 2 }} 
+              key={index}
+            >
+              <div className='w-28 h-28 transform transition-transform duration-500 hover:rotate-45' key={index}>
+                <h1 className='flex flex-row justify-center'>{tech.name}</h1>
                 <img src={tech.mobileIcon} alt="" className='icon' />
               </div>
-            ))
+          </motion.div>
+          ))
           : technologies.map((tech) => (
               <div className='w-28 h-28' key={tech.name}>
                 <h1 className='flex flex-row justify-center'>{tech.name}</h1>
                 <BallCanvas icon={tech.icon} />
               </div>
-            ))}
+            ))
+        } */}
+        {
+          technologies.map((tech) => (
+            <div className='w-28 h-28' key={tech.name}>
+              <h1 className='flex flex-row justify-center'>{tech.name}</h1>
+              <BallCanvas icon={tech.icon} />
+            </div>
+          ))
+        }
       </div>
     </>
   );
