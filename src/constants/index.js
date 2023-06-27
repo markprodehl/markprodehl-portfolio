@@ -244,11 +244,11 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "google-auth",
+          name: "googleauth",
           color: "magenta-text-gradient",
         },
         {
-          name: "open-ai",
+          name: "openai",
           color: "grey-text-gradient",
         },
       ],
@@ -268,7 +268,7 @@ import {
           color: "blue-text-gradient",
         },
         {
-          name: "firebase realtime db",
+          name: "firebase",
           color: "orange-text-gradient",
         },
         {
@@ -276,11 +276,11 @@ import {
           color: "green-text-gradient",
         },
         {
-          name: "google-auth",
+          name: "googleauth",
           color: "magenta-text-gradient",
         },
         {
-          name: "open-ai",
+          name: "openai",
           color: "grey-text-gradient",
         },
       ],
@@ -300,11 +300,11 @@ import {
           color: "blue-text-gradient",
         },
         {
-          name: "ruby-on-rails",
+          name: "rubyonrails",
           color: "pink-text-gradient",
         },
         {
-          name: "google-maps-api",
+          name: "googlemaps",
           color: "magenta-text-gradient",
         },
         {
