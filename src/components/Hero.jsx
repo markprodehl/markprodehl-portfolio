@@ -3,31 +3,10 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 import "./styles.css"
+import { useMediaQuery } from 'react-responsive'
 
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // This updates the isMobile variable state
-  useEffect(() => {
-    // Add an even listener that updates the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Callback function to handle media query changes
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Because we are using react we need to remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
+  const isMobile = useMediaQuery({ query: '(max-width: 500px)' })
 
   return (
     <section className={`relative w-full h-screen mx-auto bg-gradient-to-r from-gray-900 to-gray-700`}>
