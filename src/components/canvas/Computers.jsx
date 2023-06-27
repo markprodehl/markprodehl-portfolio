@@ -4,6 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 import computer from "../../assets/computer.png";
 import { motion } from "framer-motion";
+import { useMediaQuery } from 'react-responsive'
 
 const Computers = () => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
@@ -71,34 +72,12 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // This updates the isMobile variable state
-  useEffect(() => {
-    // Add an even listener that updates the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Callback function to handle media query changes
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Because we are using react we need to remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
+  const isMobile = useMediaQuery({ query: '(max-width: 380px)' })
+  
   return (
     <>
       {/* Displays 3D graphic on desktop and mobile */}
-       <div className="canvas-container">
+       {/* <div className="canvas-container">
         <Canvas
           frameloop='demand'
           shadows
@@ -120,11 +99,11 @@ const ComputersCanvas = () => {
 
           <Preload all />
         </Canvas>
-      </div>
+      </div> */}
 
       {/* Use this instead of ^ if you run into 3D rendering issues on some mobile devices */}
       {/* Displays an animated but static image on mobile to prevent 3D rendering issues on older devices */}
-      {/* { isMobile ? 
+      { isMobile ? 
         <motion.div
           initial={{ x: -9, scale: 0 }} // start from 50 pixels left and no size
           animate={{ x: -9, scale: 1.18 }} // animate to original position and full size
@@ -159,7 +138,7 @@ const ComputersCanvas = () => {
             <Preload all />
           </Canvas>
         </div>
-      } */}
+      }
     </>
   );
 };
