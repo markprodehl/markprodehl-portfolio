@@ -38,45 +38,53 @@ const ProjectCard = ({
         </div>
 
         <div className='mt-5 flex justify-between items-center'>
-            <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-            <div className='flex'>
-                {/* GitHub Repo Link */}
-                {/* isPrivate conditionlly adds a source_code_link based on the codebase being open source or not */}
-                {isPrivate ? 
-                  <div
-                      className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
-                  >
-                      <img
-                          src={lockedIcon}
-                          alt='source code'
-                          className='w-1/2 h-1/2 object-contain'
-                      />
-                  </div>
-                  :
-                  <div
-                      onClick={() => window.open(source_code_link, "_blank")}
-                      className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
-                  >
-                      
-                      <img
-                          src={github}
-                          alt='source code'
-                          className='w-2/3 h-2/3 object-contain'
-                      />
-                  </div>
-                }
-                {/* Deployed App Link */}
-                <div
-                    onClick={() => window.open(deployed_app_link, "_blank")}
-                    className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
-                >
-                    <img
-                        src={link}
-                        alt='source code'
-                        className='w-3/4 h-3/4 object-contain'
-                    />
+          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+          <div className='flex'>
+            {/* GitHub Repo Link */}
+            {/* isPrivate conditionlly adds a source_code_link based on the codebase being open source or not */}
+            {isPrivate ? 
+              <div className='relative black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3 group'>
+                <img
+                  src={lockedIcon}
+                  alt='private'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+                {/* Tooltip */}
+                <div className='absolute p-2 -top-8 text-center bg-black text-white text-xs rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap'>
+                  Private
                 </div>
+              </div>
+              :
+              <div
+                onClick={() => window.open(source_code_link, "_blank")}
+                className='relative black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3 group'
+              >
+                <img
+                  src={github}
+                  alt='source code'
+                  className='w-2/3 h-2/3 object-contain'
+                />
+                {/* Tooltip */}
+                <div className='absolute p-2 -top-8 text-center bg-black text-white text-xs rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap'>
+                  View source code
+                </div>
+              </div>
+            }
+            {/* Deployed App Link */}
+            <div
+              onClick={() => window.open(deployed_app_link, "_blank")}
+              className='relative black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3 group'
+            >
+              <img
+                src={link}
+                alt='source code'
+                className='w-3/4 h-3/4 object-contain'
+              />
+              <div className='absolute p-2 -top-8 -right-5 text-center bg-black text-white text-xs rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap'>
+                Launch deployed app
+              </div>
             </div>
+          </div>
         </div>
 
         <p className='mt-2 text-secondary text-[14px]'>{description}</p>
