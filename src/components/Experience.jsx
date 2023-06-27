@@ -6,7 +6,7 @@ import {
 import { motion } from "framer-motion";
 
 import "react-vertical-timeline-component/style.min.css";
-
+import { useMediaQuery } from 'react-responsive'
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -56,27 +56,79 @@ const ExperienceCard = ({ experience }) => {
   );
 };
 
+const MobileExperienceCard = ({ experience }) => {
+  return (
+    <div
+      style={{
+        background: "#1d1836",
+        color: "#fff",
+        margin: '10px 0',
+        padding: '20px',
+        borderRadius: '5px'
+      }}
+    >
+      <div>
+        <div className='flex items-center'>
+          <h3 className='text-white text-[24px] font-bold mr-4'>{experience.title}</h3>
+          <img
+              src={experience.mobileIcon}
+              alt={experience.company_name}
+              className='w-[8%] h-[8%] object-contain'
+          />
+        </div>
+
+        <p
+          className='text-secondary text-[16px] font-semibold'
+          style={{ margin: 0 }}
+        >
+          {`${experience.company_name} - ${experience.date}`}
+          
+        </p>
+      </div>
+
+      <ul className='mt-5 list-disc ml-5 space-y-2'>
+        {experience.points.map((point, index) => (
+          <li
+            key={`experience-point-${index}`}
+            className='text-white-100 text-[14px] pl-1 tracking-wider'
+          >
+            {point}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const Experience = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+
   return (
     <>
       <motion.div variants={textVariant()}>
-        {/* <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
-        </p> */}
         <h2 className={`${styles.sectionHeadText} text-center`}>
           Work Experience.
         </h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
+        {isMobile ? (
+          experiences.map((experience, index) => (
+            <MobileExperienceCard
               key={`experience-${index}`}
               experience={experience}
             />
-          ))}
-        </VerticalTimeline>
+          ))
+        ) : (
+          <VerticalTimeline>
+            {experiences.map((experience, index) => (
+              <ExperienceCard
+                key={`experience-${index}`}
+                experience={experience}
+              />
+            ))}
+          </VerticalTimeline>
+        )}
       </div>
     </>
   );

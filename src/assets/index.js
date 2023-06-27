@@ -48,6 +48,7 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import jmj from "./company/jmj.png";
 import aquatic from "./company/aquatic.png";
+import aquaticWhite from "./company/aquaticWhite.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -97,6 +98,7 @@ export {
   tripguide,
   jmj,
   aquatic, 
+  aquaticWhite,
   ruby,
   ruby1,
   postgresql,
