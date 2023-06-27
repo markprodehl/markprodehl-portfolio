@@ -114,6 +114,54 @@
   -webkit-text-fill-color: transparent;
 }
 
+.magenta-text-gradient {
+  background: #bf61ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #bf61ff,
+    #bf61ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #bf61ff,
+    #bf61ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.royal-text-gradient {
+  background: #1B73E8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #1B73E8,
+    #1B73E8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #1B73E8,
+    #1B73E8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grey-text-gradient {
+  background: #9A9A9A; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #9A9A9A,
+    #9A9A9A
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #9A9A9A,
+    #9A9A9A
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;

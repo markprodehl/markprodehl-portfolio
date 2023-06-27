@@ -234,19 +234,19 @@ import {
         },
         {
           name: "firebase",
-          color: "green-text-gradient",
+          color: "orange-text-gradient",
         },
         {
           name: "vite",
-          color: "pink-text-gradient",
+          color: "green-text-gradient",
         },
         {
           name: "google-auth",
-          color: "yellow-text-gradient",
+          color: "magenta-text-gradient",
         },
         {
           name: "open-ai",
-          color: "orange-text-gradient",
+          color: "grey-text-gradient",
         },
       ],
       image: chatai,
@@ -266,19 +266,19 @@ import {
         },
         {
           name: "firebase realtime db",
-          color: "green-text-gradient",
+          color: "orange-text-gradient",
         },
         {
           name: "vite",
-          color: "pink-text-gradient",
+          color: "green-text-gradient",
         },
         {
           name: "google-auth",
-          color: "yellow-text-gradient",
+          color: "magenta-text-gradient",
         },
         {
           name: "open-ai",
-          color: "orange-text-gradient",
+          color: "grey-text-gradient",
         },
       ],
       image: chalkboard,
@@ -297,24 +297,28 @@ import {
           color: "blue-text-gradient",
         },
         {
-          name: "google-maps-api",
-          color: "green-text-gradient",
-        },
-        {
-          name: "sentry",
+          name: "ruby-on-rails",
           color: "pink-text-gradient",
         },
         {
-          name: "formik",
-          color: "yellow-text-gradient",
+          name: "google-maps-api",
+          color: "magenta-text-gradient",
         },
         {
-          name: "yup",
-          color: "orange-text-gradient",
+          name: "sentry",
+          color: "green-text-gradient",
         },
         {
           name: "mobx",
-          color: "blue-text-gradient",
+          color: "orange-text-gradient",
+        },
+        {
+          name: "formik",
+          color: "grey-text-gradient",
+        },
+        {
+          name: "yup",
+          color: "royal-text-gradient",
         },
       ],
       image: jmjportal,
