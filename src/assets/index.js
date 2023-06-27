@@ -54,6 +54,8 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import chatai from "./chatai.png";
 import chalkboard from "./chalkboard.png";
+import jmjportal from "./jmjportal.png";
+import lockedIcon from "./lockedIcon.png";
 
 export {
   logo,
@@ -109,5 +111,6 @@ export {
   chatai,
   link,
   chalkboard,
-
+  jmjportal,
+  lockedIcon
 };

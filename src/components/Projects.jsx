@@ -2,7 +2,7 @@ import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
-import { github, link } from "../assets";
+import { github, link, lockedIcon } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
@@ -16,7 +16,9 @@ const ProjectCard = ({
   projectLink,
   source_code_link,
   deployed_app_link,
+  openSource
 }) => {
+  const isPrivate = openSource === false;
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -25,7 +27,6 @@ const ProjectCard = ({
           scale: 1,
           speed: 450,
         }}
-        // className='p-5 rounded-2xl sm:w-[360px] w-full'
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:bg-indigo-950'
       >
         <div className='relative w-full h-[230px]'>
@@ -40,16 +41,30 @@ const ProjectCard = ({
             <h3 className='text-white font-bold text-[24px]'>{name}</h3>
             <div className='flex'>
                 {/* GitHub Repo Link */}
-                <div
-                    onClick={() => window.open(source_code_link, "_blank")}
-                    className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
-                >
-                    <img
-                        src={github}
-                        alt='source code'
-                        className='w-2/3 h-2/3 object-contain'
-                    />
-                </div>
+                {/* isPrivate conditionlly adds a source_code_link based on the codebase being open source or not */}
+                {isPrivate ? 
+                  <div
+                      className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
+                  >
+                      <img
+                          src={lockedIcon}
+                          alt='source code'
+                          className='w-1/2 h-1/2 object-contain'
+                      />
+                  </div>
+                  :
+                  <div
+                      onClick={() => window.open(source_code_link, "_blank")}
+                      className='black-gradient w-8 h-8 rounded-full flex justify-center items-center cursor-pointer ml-3'
+                  >
+                      
+                      <img
+                          src={github}
+                          alt='source code'
+                          className='w-2/3 h-2/3 object-contain'
+                      />
+                  </div>
+                }
                 {/* Deployed App Link */}
                 <div
                     onClick={() => window.open(deployed_app_link, "_blank")}

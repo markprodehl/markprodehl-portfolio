@@ -48,6 +48,7 @@ import {
     chatai,
     link,
     chalkboard,
+    jmjportal,
   } from "../assets";
   
   export const navLinks = [
@@ -223,15 +224,16 @@ import {
   const projects = [
     {
       name: "Chat AI",
+      openSource: true,
       description:
-        "ChatAI is an application developed using React and Vite. It uses Firebase Firestore for data storage and Google Authentication for user identification. This application is hosted on Google hosting. The application interacts with OpenAI's GPT-3 model for creating conversational agents.",
+      "ChatAI is a sophisticated conversational application developed using React, Vite, and Firebase Firestore, leveraging OpenAI's GPT-3 model to generate AI assistant responses. Hosted on Google, the application provides secure Authentication login, a real-time chat interface, and incorporates a typing effect for the AI assistant. Additional features include a custom-coded message formatter, a SyntaxHighlighter for code readability, and system message functionality to define the AI's behavior. This allows the user to customize ChatAI's personality",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "firebase-realtime-db",
+          name: "firebase",
           color: "green-text-gradient",
         },
         {
@@ -254,8 +256,9 @@ import {
     },
     {
       name: "Chalk Board",
+      openSource: true,
       description:
-        "ChatAI is an application developed using React and Vite. It uses Firebase Firestore for data storage and Google Authentication for user identification. This application is hosted on Google hosting. The application interacts with OpenAI's GPT-3 model for creating conversational agents.",
+        "Chalk Board is a user-friendly, real-time to-do list application developed with React, Firestore, and Firebase Authentication. The app provides instantaneous updates, editable task entries, and robust user authentication supporting both email-password and Google sign-in options. It ensures persistant storage of tasks even if the user is offline. Equipped with service worker registration, it supports Progressive Web App (PWA) features, enabling installation on devices for a seamless user experience.",
       tags: [
         {
           name: "react",
@@ -284,78 +287,41 @@ import {
       deployed_app_link: "https://golden-to-do-list-462c7.web.app/",
     },
     {
-      name: "Chat AI",
+      name: "JMJ Financial",
+      openSource: false,
       description:
-        "ChatAI is an application developed using React and Vite. It uses Firebase Firestore for data storage and Google Authentication for user identification. This application is hosted on Google hosting. The application interacts with OpenAI's GPT-3 model for creating conversational agents.",
+        "The JMJ Borrower Portal is a client-facing frontend application that allows borrowers to submit loan applications and manage their automatically generated tasks and related disclosures. It is built with React and provides a user-friendly interface for interacting with a Ruby on Rails backend. The file structure consists of reusable components, page views, data files, and assets that serve as a comprehensive tool for borrowers to conveniently manage their loan applications, and the associated tasks and forms required for loan closure.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "google-maps-api",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "sentry",
           color: "pink-text-gradient",
         },
         {
-          name: "google-auth",
+          name: "formik",
           color: "yellow-text-gradient",
         },
         {
-          name: "open-ai",
+          name: "yup",
           color: "orange-text-gradient",
         },
+        {
+          name: "mobx",
+          color: "blue-text-gradient",
+        },
       ],
-      image: chatai,
+      image: jmjportal,
       projectLink: link,
-      source_code_link: "https://github.com/markprodehl/chat-ai",
-      deployed_app_link: "https://chat-ai-c95f1.web.app/",
+      source_code_link: "",
+      deployed_app_link: "https://portal.jmj.me/",
     },
-    // {
-    //   name: "Job IT",
-    //   description:
-    //     "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    //   tags: [
-    //     {
-    //       name: "react",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "restapi",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "scss",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   image: jobit,
-    //   source_code_link: "https://github.com/",
-    // },
-    // {
-    //   name: "Trip Guide",
-    //   description:
-    //     "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    //   tags: [
-    //     {
-    //       name: "nextjs",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "supabase",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "css",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   image: tripguide,
-    //   source_code_link: "https://github.com/",
-    // },
   ];
   
   export { services, technologies, experiences, testimonials, projects };
