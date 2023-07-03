@@ -57,6 +57,7 @@ import chatai from "./chatai.png";
 import chalkboard from "./chalkboard.png";
 import jmjportal from "./jmjportal.png";
 import lockedIcon from "./lockedIcon.png";
+import linkedIn from "./linkedIn.png"
 
 export {
   logo,
@@ -114,5 +115,6 @@ export {
   link,
   chalkboard,
   jmjportal,
-  lockedIcon
+  lockedIcon,
+  linkedIn
 };

@@ -6,6 +6,8 @@ import { styles } from "../styles";
 // import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { linkedIn } from "../assets";
+import { useMediaQuery } from 'react-responsive'
 
 const Contact = () => {
   const formRef = useRef();
@@ -16,6 +18,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const isMobile = useMediaQuery({ query: '(max-width: 500px)' })
 
   const handleChange = (e) => {
     const { target } = e;
@@ -72,7 +75,15 @@ const Contact = () => {
         className='flex-[1] p-8 rounded-2xl'
       >
         {/* <p className={styles.sectionSubText}>Get in touch</p> */}
-        <h3 className={styles.sectionHeadText}>Contact</h3>
+        <div className='flex items-center'>
+          <h3 className={styles.sectionHeadText}>Contact</h3>
+          <a href='https://www.linkedin.com/in/mark-software-engineer/' 
+            target='_blank'
+            rel='noopener noreferrer'
+            className='ml-10'>
+            <img src={linkedIn} alt="LinkedIn" style={{width: isMobile ? '30px' : '50px'}} />
+          </a>
+        </div>
 
         <form
           ref={formRef}
@@ -120,6 +131,13 @@ const Contact = () => {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
+        {/* Here's the LinkedIn link, adjust styling as needed
+        <a href='https://www.linkedin.com/in/mark-software-engineer/' 
+           target='_blank'
+           rel='noopener noreferrer'
+           className='mt-12 text-white font-medium'>
+          Connect with me on LinkedIn
+        </a> */}
       </motion.div>
 
       {/* <motion.div
