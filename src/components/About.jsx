@@ -6,36 +6,39 @@ import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useMediaQuery } from 'react-responsive'
 
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      //Update the card styles
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        // Update the card color and styles
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col hover:bg-indigo-950'
+const ServiceCard = ({ index, title, icon }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 580px)' })
+
+  return (
+    <Tilt className={isMobile ? 'flex-grow w-32 h-32' : 'xs:w-[250px] w-full'}>
+      <motion.div
+        variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+        className={isMobile ? 'w-full h-full green-pink-gradient p-[1px] rounded-xl shadow-card' : 'w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'}
       >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
+        <div
+          options={{
+            max: 45,
+            scale: 1,
+            speed: 450,
+          }}
+          className={isMobile ? 'w-full h-full bg-tertiary rounded-xl py-4 px-6 flex justify-evenly items-center flex-col hover:bg-indigo-950' : 'bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col hover:bg-indigo-950'}
+        >
+          <img
+            src={icon}
+            alt='web-development'
+            className={isMobile ? 'w-8 h-8 object-contain' : 'w-16 h-16 object-contain'}
+          />
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  </Tilt>
-);
+          <h3 className={isMobile ? 'text-white text-sm font-bold text-center' : 'text-white text-[20px] font-bold text-center'}>
+            {title}
+          </h3>
+        </div>
+      </motion.div>
+    </Tilt>
+  );
+};
 
 const About = () => {
   return (
