@@ -278,11 +278,7 @@ import {
         {
           name: "googleauth",
           color: "magenta-text-gradient",
-        },
-        {
-          name: "openai",
-          color: "grey-text-gradient",
-        },
+        }
       ],
       image: chalkboard,
       projectLink: link,
